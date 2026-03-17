@@ -98,7 +98,12 @@ class SmartTranslator:
     def __init__(self, model: str = "qwen-plus", mode: str = "strict", api_key: Optional[str] = None):
         self.model = model
         self.mode = mode
-        self.api_key = api_key or os.getenv("SMART_TRANSLATOR_API_KEY") or os.getenv("SILICONFLOW_API_KEY") or os.getenv("DASHSCOPE_API_KEY")
+        self.api_key = (
+            api_key or
+            os.getenv("SMART_TRANSLATOR_API_KEY") or
+            os.getenv("SILICONFLOW_API_KEY") or
+            os.getenv("DASHSCOPE_API_KEY")
+        ) or os.getenv("SILICONFLOW_API_KEY") or os.getenv("DASHSCOPE_API_KEY")
         self.cache_dir = Path(".translation_cache")
         self.cache_dir.mkdir(exist_ok=True)
         
