@@ -1,0 +1,40 @@
+{
+  "name": "smart-translator",
+  "version": "2.0.0",
+  "description": "基于大模型的智能翻译技能，支持网页、Word、PDF、Markdown 文档翻译，智能分批处理，断点续翻，成本透明",
+  "author": "Administrator",
+  "license": "MIT",
+  "category": "document",
+  "tags": ["translation", "chinese", "english", "batch", "document", "llm", "smart"],
+  "main": "smart_translator.py",
+  "dependencies": [
+    "python-docx",
+    "pdfplumber",
+    "reportlab",
+    "aiohttp",
+    "asyncio"
+  ],
+  "env_required": [
+    "DASHSCOPE_API_KEY"
+  ],
+  "usage": {
+    "single_file": "python smart_translator.py input.docx -o output_zh.docx",
+    "batch": "python smart_translator.py ./docs/ --batch -o ./docs_zh/",
+    "web": "python smart_translator.py --url https://example.com/article"
+  },
+  "models_supported": [
+    "qwen-turbo",
+    "qwen-plus",
+    "qwen-max",
+    "gpt-4o",
+    "claude-3.5-sonnet"
+  ],
+  "features": [
+    "智能分批处理",
+    "断点续翻",
+    "多格式支持",
+    "成本估算",
+    "并发翻译",
+    "多翻译模式"
+  ]
+}
